@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universal Smart Caddie & Yardage Card</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlNtYXJ0IENhZGRpZSIsCiAgInNob3J0X25hbWUiOiAiQ2FkZGllIiwKICAic3RhcnRfdXJsIjogIi4vIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIwZjE3MmEiLAogICJ0aGVtZV9jb2xvciI6ICIwZjE3MmEiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWwsPHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nIzEwYjI5MSc+PHBhdGggZD0nTTkgMTJsMiAyIDQtNG01LjYxOC00LjAxNkExMS45NTUgMTEuOTU1IDAgMDExMiAyLjk0NGExMS45NTUgMTEuOTU1IDAgMDEtOC42MTggMy4wNEExMi4wMiAxMi4wMiAwIDAwMyA5YzAgNS41OTEgMy44MjQgMTAuMjkgOSAxMS42MjIgNS4xNzYtMS4zMzIgOS02LjAzIDktMTEuNjIyIDAtMS4wNDItLjEzMy0yLjA1Mi0uMzgyLTMuMDE2dicvPjwvc3ZnPiIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0KICBdCn0=">
+
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -131,7 +132,6 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-emerald-500 selection:text-slate-950 transition-colors duration-300">
 
-    <!-- FLOATING CONTROLS (Only visible during active Screen Print Mode) -->
     <div id="floating-print-controls" class="hidden fixed top-4 left-1/2 transform -translate-x-1/2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-full shadow-2xl items-center gap-3 z-50 no-print">
         <span class="text-xs font-bold text-slate-300 font-semibold">Landscape Preview</span>
         <button onclick="window.print()" class="px-3 py-1.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs rounded-lg transition shadow-md">
@@ -142,9 +142,7 @@
         </button>
     </div>
 
-    <!-- APP WRAPPER -->
     <div id="app-content" class="flex-grow flex flex-col">
-        <!-- NAVIGATION HEADER -->
         <header class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50 px-4 py-3">
             <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div class="flex items-center gap-3">
@@ -159,7 +157,6 @@
                     </div>
                 </div>
                 
-                <!-- Tab Controls -->
                 <nav class="flex p-1 bg-slate-950/80 rounded-xl border border-slate-800 w-full sm:w-auto">
                     <button onclick="switchTab('dashboard')" id="btn-dashboard" class="flex-1 sm:flex-initial px-4 py-1.5 text-xs font-semibold rounded-lg transition-all duration-300 bg-emerald-500 text-slate-950 shadow-md">
                         Dashboard
@@ -176,9 +173,7 @@
 
         <main class="flex-grow max-w-6xl w-full mx-auto p-4 sm:p-6">
             
-            <!-- ==================== TAB 1: DASHBOARD ==================== -->
             <section id="tab-dashboard" class="space-y-6">
-                <!-- Session Header -->
                 <div class="bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-4">
                     <div class="flex items-center gap-3">
                         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -192,9 +187,7 @@
                     </div>
                 </div>
 
-                <!-- Double Column layout -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                    <!-- Column Left: Side A - The Engine (Clubs) -->
                     <div class="lg:col-span-7 space-y-4">
                         <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                             <h2 class="heading-font text-lg font-bold text-slate-100 flex items-center gap-2">
@@ -203,7 +196,6 @@
                             <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded-full font-mono uppercase font-semibold">13 Clubs Mapped</span>
                         </div>
 
-                        <!-- Club Table Interactive Panel -->
                         <div class="bg-slate-900/40 border border-slate-800/80 rounded-2xl overflow-hidden shadow-2xl">
                             <div class="overflow-x-auto">
                                 <table class="w-full text-left border-collapse">
@@ -217,7 +209,6 @@
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-slate-800/60 text-sm">
-                                        <!-- Driver -->
                                         <tr onclick="inspectClub('driver', 245, 18, '9.5°', 'TaylorMade R580 XD', 'Tour Stiff Mitsubishi', 'Flat, piercing launch trajectory. Tour-stiff profile maintains square angle at impact.')" class="hover:bg-emerald-500/10 cursor-pointer transition-all duration-150 group">
                                             <td class="py-3.5 px-4 font-bold group-hover:text-emerald-400">TM R580 XD</td>
                                             <td class="py-3.5 px-2 text-center text-xs font-mono text-slate-400">9.5°</td>
@@ -225,7 +216,6 @@
                                             <td class="py-3.5 px-4 text-center font-mono text-slate-300">15-20y</td>
                                             <td class="py-3.5 px-4"><span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/20">Wood</span></td>
                                         </tr>
-                                        <!-- Hybrid -->
                                         <tr onclick="inspectClub('hybrid', 195, 10, '19°', 'Adams Super S', 'Stiff Matrix', 'High-launch rescue/fairway wood replacement. Excellent sole sweep cuts through tough lies.')" class="hover:bg-emerald-500/10 cursor-pointer transition-all duration-150 group">
                                             <td class="py-3.5 px-4 font-bold group-hover:text-emerald-400">Adams Super S</td>
                                             <td class="py-3.5 px-2 text-center text-xs font-mono text-slate-400">19°</td>
@@ -233,7 +223,6 @@
                                             <td class="py-3.5 px-4 text-center font-mono text-slate-300">8-12y</td>
                                             <td class="py-3.5 px-4"><span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Hybrid</span></td>
                                         </tr>
-                                        <!-- 3i -->
                                         <tr onclick="inspectClub('3i', 175, 13, '20.5°', 'Ping ISI 3-Iron', 'Stiff Cushin JZ Steel', 'Low, wind-cheating bullet flight. Excellent defensive safety alternative off tight tee boxes.')" class="hover:bg-emerald-500/10 cursor-pointer transition-all duration-150 group">
                                             <td class="py-3.5 px-4 font-bold group-hover:text-emerald-400">Ping ISI 3-Iron</td>
                                             <td class="py-3.5 px-2 text-center text-xs font-mono text-slate-400">20.5°</td>
@@ -241,7 +230,6 @@
                                             <td class="py-3.5 px-4 text-center font-mono text-slate-300">12-15y</td>
                                             <td class="py-3.5 px-4"><span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Long Iron</span></td>
                                         </tr>
-                                        <!-- 4i -->
                                         <tr onclick="inspectClub('4i', 165, 9, '24°', 'Ping ISI 4-Iron', 'Stiff Cushin JZ Steel', 'Long fairway approach. Excellent profile for low-flying punch shots out of forestry.')" class="hover:bg-emerald-500/10 cursor-pointer transition-all duration-150 group">
                                             <td class="py-3.5 px-4 font-bold group-hover:text-emerald-400">Ping ISI 4-Iron</td>
                                             <td class="py-3.5 px-2 text-center text-xs font-mono text-slate-400">24°</td>
@@ -249,7 +237,6 @@
                                             <td class="py-3.5 px-4 text-center font-mono text-slate-300">8-10y</td>
                                             <td class="py-3.5 px-4"><span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Long Iron</span></td>
                                         </tr>
-                                        <!-- 5i -->
                                         <tr onclick="inspectClub('5i', 155, 7, '27°', 'Ping ISI 5-Iron', 'Stiff Cushin JZ Steel', 'Mid-iron target locator. Strong, launching trajectory built for holding wider green configurations.')" class="hover:bg-emerald-500/10 cursor-pointer transition-all duration-150 group">
                                             <td class="py-3.5 px-4 font-bold group-hover:text-emerald-400">Ping ISI 5-Iron</td>
                                             <td class="py-3.5 px-2 text-center text-xs font-mono text-slate-400">27°</td>
@@ -257,7 +244,6 @@
                                             <td class="py-3.5 px-4 text-center font-mono text-slate-300">6-8y</td>
                                             <td class="py-3.5 px-4"><span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Mid Iron</span></td>
                                         </tr>
-                                        <!-- 6i -->
                                         <tr onclick="inspectClub('6i', 145, 6, '30.5°', 'Ping ISI 6-Iron', 'Stiff Cushin JZ Steel', 'Predictable target driver. Heavy head perimeter stabilization blocks standard toe twist.')" class="hover:bg-emerald-500/10 cursor-pointer transition-all duration-150 group">
                                             <td class="py-3.5 px-4 font-bold group-hover:text-emerald-400">Ping ISI 6-Iron</td>
                                             <td class="py-3.5 px-2 text-center text-xs font-mono text-slate-400">30.5°</td>
@@ -265,15 +251,14 @@
                                             <td class="py-3.5 px-4 text-center font-mono text-slate-300">5-7y</td>
                                             <td class="py-3.5 px-4"><span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Mid Iron</span></td>
                                         </tr>
-                                        <!-- 7i -->
                                         <tr onclick="inspectClub('7i', 135, 5, '34.5°', 'Ping ISI 7-Iron', 'Stiff Cushin JZ Steel', 'Bread-and-butter iron. Launches high with soft descent. Classic go-to scoring target finder.')" class="hover:bg-emerald-500/10 cursor-pointer transition-all duration-150 group">
                                             <td class="py-3.5 px-4 font-bold group-hover:text-emerald-400">Ping ISI 7-Iron</td>
                                             <td class="py-3.5 px-2 text-center text-xs font-mono text-slate-400">34.5°</td>
                                             <td class="py-3.5 px-4 text-center font-mono font-bold text-emerald-400 text-base">135y</td>
+                                            <td class="py-3.5 px-4 text-center font-mono font-bold text-emerald-400 text-base">135y</td>
                                             <td class="py-3.5 px-4 text-center font-mono text-slate-300">4-6y</td>
                                             <td class="py-3.5 px-4"><span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Mid Iron</span></td>
                                         </tr>
-                                        <!-- 8i -->
                                         <tr onclick="inspectClub('8i', 125, 3.5, '38.5°', 'Ping ISI 8-Iron', 'Stiff Cushin JZ Steel', 'High spin index. Great for aggressive direct targeting into fast, firm greens.')" class="hover:bg-emerald-500/10 cursor-pointer transition-all duration-150 group">
                                             <td class="py-3.5 px-4 font-bold group-hover:text-emerald-400">Ping ISI 8-Iron</td>
                                             <td class="py-3.5 px-2 text-center text-xs font-mono text-slate-400">38.5°</td>
@@ -281,7 +266,6 @@
                                             <td class="py-3.5 px-4 text-center font-mono text-slate-300">3-4y</td>
                                             <td class="py-3.5 px-4"><span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/20">Short Iron</span></td>
                                         </tr>
-                                        <!-- 9i -->
                                         <tr onclick="inspectClub('9i', 115, 2.5, '42.5°', 'Ping ISI 9-Iron', 'Stiff Cushin JZ Steel', 'Direct pin-seeker. Generates high apex heights with very fast deceleration upon turf impact.')" class="hover:bg-emerald-500/10 cursor-pointer transition-all duration-150 group">
                                             <td class="py-3.5 px-4 font-bold group-hover:text-emerald-400">Ping ISI 9-Iron</td>
                                             <td class="py-3.5 px-2 text-center text-xs font-mono text-slate-400">42.5°</td>
@@ -289,7 +273,6 @@
                                             <td class="py-3.5 px-4 text-center font-mono text-slate-300">2-3y</td>
                                             <td class="py-3.5 px-4"><span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/20">Short Iron</span></td>
                                         </tr>
-                                        <!-- PW -->
                                         <tr onclick="inspectClub('pw', 105, 1.5, '47°', 'Ping ISI PW', 'Stiff Cushin JZ Steel', 'Full approach scoring wedge. Traditional 90s design delivers dense backspin parameters.')" class="hover:bg-emerald-500/10 cursor-pointer transition-all duration-150 group">
                                             <td class="py-3.5 px-4 font-bold group-hover:text-emerald-400">Ping ISI PW</td>
                                             <td class="py-3.5 px-2 text-center text-xs font-mono text-slate-400">47°</td>
@@ -297,7 +280,6 @@
                                             <td class="py-3.5 px-4 text-center font-mono text-slate-300">1-2y</td>
                                             <td class="py-3.5 px-4"><span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20">Wedge</span></td>
                                         </tr>
-                                        <!-- SW -->
                                         <tr onclick="inspectClub('sw', 90, 1, '52°', 'Ping ISI SW (Gap)', 'Stiff Cushin JZ Steel', 'Perfect gap coverage wedge. Crucial utility piece for long pitch runs or wider bunker entries.')" class="hover:bg-emerald-500/10 cursor-pointer transition-all duration-150 group">
                                             <td class="py-3.5 px-4 font-bold group-hover:text-emerald-400">Ping ISI SW</td>
                                             <td class="py-3.5 px-2 text-center text-xs font-mono text-slate-400">52°</td>
@@ -305,7 +287,6 @@
                                             <td class="py-3.5 px-4 text-center font-mono text-slate-300">1y</td>
                                             <td class="py-3.5 px-4"><span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20">Wedge</span></td>
                                         </tr>
-                                        <!-- Lynx 56 -->
                                         <tr onclick="inspectClub('lynx', 75, 0.5, '56°', 'Lynx CoNi Series', 'Wedge Flex Steel', 'Dedicated sand recovery and soft bunker floating lob. Heavy head delivers smooth sweep.')" class="hover:bg-emerald-500/10 cursor-pointer transition-all duration-150 group">
                                             <td class="py-3.5 px-4 font-bold group-hover:text-emerald-400">Lynx CoNi</td>
                                             <td class="py-3.5 px-2 text-center text-xs font-mono text-slate-400">56°</td>
@@ -313,7 +294,6 @@
                                             <td class="py-3.5 px-4 text-center font-mono text-slate-300">0-1y</td>
                                             <td class="py-3.5 px-4"><span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20">Wedge</span></td>
                                         </tr>
-                                        <!-- RAM 60 -->
                                         <tr onclick="inspectClub('ram', 60, 0, '60°', 'RAM Tour Grind', 'Wedge Flex Steel', 'Maximum elevation precision wedge. Crucial for high flop rescues over tight sands.')" class="hover:bg-emerald-500/10 cursor-pointer transition-all duration-150 group">
                                             <td class="py-3.5 px-4 font-bold group-hover:text-emerald-400">RAM Tour Grind</td>
                                             <td class="py-3.5 px-2 text-center text-xs font-mono text-slate-400">60°</td>
@@ -327,9 +307,7 @@
                         </div>
                     </div>
 
-                    <!-- Column Right: Active Inspector & Side B (Manual) -->
                     <div class="lg:col-span-5 space-y-6">
-                        <!-- Dynamic Inspector Panel -->
                         <div id="inspector" class="bg-gradient-to-br from-slate-900 to-slate-950 border border-emerald-500/30 rounded-2xl p-5 shadow-xl relative overflow-hidden">
                             <div class="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
                                 <svg class="w-24 h-24 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
@@ -340,7 +318,6 @@
                             <h3 id="inspect-name" class="heading-font text-2xl font-bold mt-3 text-slate-100">TaylorMade R580 XD</h3>
                             <p id="inspect-shaft" class="text-xs text-amber-500 font-semibold mt-1">Tour Stiff Mitsubishi • 9.5° Loft</p>
                             
-                            <!-- Dynamic Trajectory Box -->
                             <div class="mt-4 bg-slate-950/80 rounded-xl p-4 border border-slate-800 flex flex-col justify-end h-28 relative">
                                 <div class="absolute inset-0 p-3 flex justify-between text-[10px] text-slate-500 font-mono pointer-events-none">
                                     <span>Apex Tracker</span>
@@ -357,7 +334,6 @@
                             </p>
                         </div>
 
-                        <!-- Side B Overview Tab Controls inside Panel -->
                         <div class="space-y-4">
                             <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                                 <h2 class="heading-font text-lg font-bold text-slate-100 flex items-center gap-2">
@@ -366,9 +342,7 @@
                                 <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded-full font-mono uppercase font-semibold">Tactics</span>
                             </div>
 
-                            <!-- Manual Panels (Grid) -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <!-- Wind Cheat Sheet -->
                                 <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-4 hover:border-slate-700 transition font-medium">
                                     <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm mb-2">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.364l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
@@ -381,7 +355,6 @@
                                     </ul>
                                 </div>
 
-                                <!-- Topography and Hill Physics -->
                                 <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-4 hover:border-slate-700 transition font-medium">
                                     <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm mb-2">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.003 9.003 0 1020.945 13H11V3.055z"/></svg>
@@ -395,7 +368,6 @@
                                 </div>
                             </div>
 
-                            <!-- Interactive Clock Selector Wedge Panel -->
                             <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-4 space-y-4">
                                 <div class="flex items-center justify-between">
                                     <h4 class="text-sm font-bold text-slate-200 flex items-center gap-1.5">
@@ -404,12 +376,10 @@
                                     <span class="text-[10px] font-normal text-slate-400">Tap Position:</span>
                                 </div>
                                 <div class="flex flex-col sm:flex-row gap-4 items-center">
-                                    <!-- Dial Visualizer -->
                                     <div class="flex gap-2 bg-slate-950 p-1 rounded-xl border border-slate-800 shrink-0">
                                         <button onclick="setClock('9:00')" id="clk-9" class="px-3 py-2 rounded-lg text-xs font-bold transition bg-emerald-500 text-slate-950">9:00 (Waist)</button>
                                         <button onclick="setClock('10:30')" id="clk-10" class="px-3 py-2 rounded-lg text-xs font-bold transition text-slate-400 hover:text-slate-200">10:30 (Chest)</button>
                                     </div>
-                                    <!-- Yardage Outputs -->
                                     <div class="grid grid-cols-3 gap-2 flex-grow w-full">
                                         <div class="bg-slate-950 p-2 rounded-xl text-center border border-slate-800">
                                             <p class="text-[9px] text-slate-400 font-semibold uppercase">52° SW</p>
@@ -426,7 +396,6 @@
                                     </div>
                                 </div>
 
-                                <!-- ADVANCED WEDGE PLAYBOOK (Added Clock Tips & Pitch & Roll Formulas) -->
                                 <div class="pt-3 border-t border-slate-800 space-y-3">
                                     <div class="flex items-center justify-between">
                                         <span class="text-[10px] uppercase font-bold text-emerald-400 tracking-wide font-semibold">Short Game Secrets Playbook</span>
@@ -434,7 +403,6 @@
                                     </div>
                                     
                                     <div class="grid grid-cols-1 gap-2.5 text-xs font-medium">
-                                        <!-- Player vs Coach Perspective -->
                                         <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
                                             <p class="font-bold text-slate-200 flex items-center gap-1">
                                                 <span class="text-emerald-400 font-mono">⏱️</span> 
@@ -446,7 +414,6 @@
                                             </p>
                                         </div>
 
-                                        <!-- 10-Yard Finesse -->
                                         <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
                                             <p class="font-bold text-slate-200 flex items-center gap-1">
                                                 <span class="text-emerald-400 font-mono">🎯</span> 
@@ -457,7 +424,6 @@
                                             </p>
                                         </div>
 
-                                        <!-- 9-Iron Pitch & Roll -->
                                         <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
                                             <p class="font-bold text-slate-200 flex items-center gap-1">
                                                 <span class="text-emerald-400 font-mono">🟢</span> 
@@ -471,7 +437,6 @@
                                 </div>
                             </div>
 
-                            <!-- In-Round Pressure Checklist -->
                             <div class="bg-gradient-to-r from-emerald-950/40 to-slate-950 border border-emerald-500/20 rounded-2xl p-4">
                                 <h4 class="text-sm font-bold text-emerald-400 flex items-center gap-2 mb-2 font-semibold">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -497,9 +462,7 @@
                 </div>
             </section>
 
-            <!-- ==================== TAB 2: SMART CALCULATORS ==================== -->
             <section id="tab-calculator" class="hidden space-y-6">
-                <!-- Sub-Tab Navigation inside Tab 2 -->
                 <div class="flex p-1 bg-slate-900 rounded-2xl border border-slate-800 max-w-xl mx-auto mb-6">
                     <button onclick="setCalcSubTab('approach')" id="sub-btn-approach" class="flex-1 py-2 text-xs font-bold rounded-xl transition bg-emerald-500 text-slate-950 shadow-md">
                         Approach Caddie
@@ -512,7 +475,6 @@
                     </button>
                 </div>
 
-                <!-- SUB-TAB 2A: APPROACH CALCULATOR (Long Shot) -->
                 <div id="calc-sub-approach" class="max-w-2xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl space-y-6">
                     <div class="text-center">
                         <h2 class="heading-font text-xl font-bold bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent flex items-center justify-center gap-2">
@@ -523,7 +485,6 @@
                     </div>
 
                     <div class="space-y-4">
-                        <!-- Raw Yardage Input -->
                         <div>
                             <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Target Flag Distance (Yards)</label>
                             <div class="relative rounded-2xl bg-slate-950 border border-slate-800 p-1 flex items-center">
@@ -532,7 +493,6 @@
                             </div>
                         </div>
 
-                        <!-- Elevation Slider -->
                         <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800/80 space-y-2">
                             <div class="flex justify-between items-center text-xs">
                                 <span class="font-bold text-slate-400 uppercase tracking-wider">Elevation Change</span>
@@ -545,7 +505,6 @@
                             </div>
                         </div>
 
-                        <!-- Wind Direction/Velocity -->
                         <div class="grid grid-cols-3 gap-3">
                             <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 flex flex-col items-center">
                                 <span class="text-[10px] font-bold text-slate-400 uppercase mb-2">Wind Direction</span>
@@ -578,7 +537,6 @@
                         </div>
                     </div>
 
-                    <!-- Calculator Output (Enhanced with Carry/Roll/Total values) -->
                     <div class="bg-gradient-to-br from-emerald-950/60 to-slate-950 p-6 rounded-2xl border border-emerald-500/20 text-center space-y-4">
                         <div class="grid grid-cols-2 divide-x divide-slate-800">
                             <div>
@@ -591,12 +549,10 @@
                             </div>
                         </div>
 
-                        <!-- Expected Ball Performance Block -->
                         <div class="border-t border-slate-800/80 pt-4">
                             <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider block mb-1">Caddie Selected Club</span>
                             <h4 id="out-club" class="heading-font text-xl font-extrabold text-slate-100">Ping ISI 5-Iron</h4>
                             
-                            <!-- Detailed Carry and Roll Metrics -->
                             <div class="grid grid-cols-3 gap-2 mt-4 bg-slate-950/60 p-3 rounded-xl border border-slate-800">
                                 <div class="text-center">
                                     <span class="text-[9px] uppercase font-bold text-slate-400">Flight Carry</span>
@@ -617,7 +573,6 @@
                     </div>
                 </div>
 
-                <!-- SUB-TAB 2B: CHIPPING & PITCHING CADDIE -->
                 <div id="calc-sub-chipping" class="hidden max-w-2xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl space-y-6">
                     <div class="text-center">
                         <h2 class="heading-font text-xl font-bold bg-gradient-to-r from-amber-400 to-emerald-400 bg-clip-text text-transparent flex items-center justify-center gap-2">
@@ -628,7 +583,6 @@
                     </div>
 
                     <div class="space-y-4">
-                        <!-- Chipping Distance Slider -->
                         <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800/80 space-y-2">
                             <div class="flex justify-between items-center text-xs">
                                 <span class="font-bold text-slate-400 uppercase tracking-wider">Distance to Pin</span>
@@ -642,9 +596,8 @@
                             </div>
                         </div>
 
-                        <!-- Course Lie / Scenario Selector -->
                         <div>
-                            <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Greenway Hazard & Scenario</span>
+                            <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2 font-semibold">Greenway Hazard & Scenario</span>
                             <div class="grid grid-cols-2 gap-3">
                                 <button onclick="setChippingScenario('clear')" id="chip-scen-clear" class="px-4 py-3 bg-emerald-500 text-slate-950 font-bold text-xs rounded-xl transition border border-emerald-500/10 flex flex-col items-center gap-1">
                                     <span class="text-base">🟢</span>
@@ -660,7 +613,6 @@
                         </div>
                     </div>
 
-                    <!-- Dynamic Chipping Outputs -->
                     <div class="bg-gradient-to-br from-slate-950 to-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4 shadow-xl">
                         <div class="flex justify-between items-start border-b border-slate-800 pb-3">
                             <div>
@@ -673,7 +625,6 @@
                             </div>
                         </div>
 
-                        <!-- Carry vs Roll Interactive Progress Bar -->
                         <div class="space-y-1.5 font-medium">
                             <div class="flex justify-between text-xs font-semibold">
                                 <span class="text-emerald-400 flex items-center gap-1">
@@ -695,7 +646,6 @@
                             </div>
                         </div>
 
-                        <!-- Interactive Instructions Box -->
                         <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800/80">
                             <span class="text-[9px] font-bold text-emerald-400 uppercase tracking-widest block mb-1">Execution Protocol</span>
                             <p id="chip-out-setup" class="text-xs text-slate-300 leading-relaxed font-medium">
@@ -705,7 +655,6 @@
                     </div>
                 </div>
 
-                <!-- SUB-TAB 2C: SAND BUNKER ESCAPE CADDIE -->
                 <div id="calc-sub-bunker" class="hidden max-w-2xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl space-y-6">
                     <div class="text-center">
                         <h2 class="heading-font text-xl font-bold bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent flex items-center justify-center gap-2">
@@ -716,7 +665,6 @@
                     </div>
 
                     <div class="space-y-4">
-                        <!-- Bunker Distance Slider -->
                         <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800/80 space-y-2">
                             <div class="flex justify-between items-center text-xs">
                                 <span class="font-bold text-slate-400 uppercase tracking-wider">Distance to Target / Flag</span>
@@ -730,7 +678,6 @@
                             </div>
                         </div>
 
-                        <!-- Sand Condition Toggle -->
                         <div>
                             <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2 font-semibold">Sand Type & Lie Structure</span>
                             <div class="grid grid-cols-3 gap-2">
@@ -749,7 +696,6 @@
                             </div>
                         </div>
 
-                        <!-- Lip Height Toggle -->
                         <div>
                             <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2 font-semibold">Bunker Lip Height</span>
                             <div class="grid grid-cols-2 gap-3">
@@ -763,35 +709,27 @@
                         </div>
                     </div>
 
-                    <!-- Dynamic Bunker Graphics Strike Visualizer -->
                     <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800/80">
                         <div class="flex justify-between items-center text-xs mb-2">
                             <span class="font-bold text-slate-400 uppercase tracking-wider">Dynamic Sand-Strike Indicator</span>
-                            <span id="bunker-strike-offset" class="font-mono font-bold text-rose-400 text-xs">Aim 2" Behind Ball</span>
+                            <span id="bunker-strike-offset" class="font-mono font-bold text-rose-400 text-xs">Aim 2\" Behind Ball</span>
                         </div>
-                        <!-- Responsive SVG diagram -->
                         <div class="bg-slate-900/60 rounded-xl p-2 border border-slate-800 flex items-center justify-center h-28 relative">
                             <svg id="bunker-strike-svg" class="w-full h-24" viewBox="0 0 200 100" fill="none">
-                                <!-- Sand wave background -->
                                 <path id="bunker-svg-sand" d="M 10 70 Q 50 65 100 70 T 190 70" stroke="#d97706" stroke-width="4" stroke-linecap="round"/>
                                 <path d="M 10 72 L 190 72 L 190 100 L 10 100 Z" fill="#d97706" fill-opacity="0.1"/>
-                                
-                                <!-- Golf Ball -->
                                 <circle id="bunker-svg-ball" cx="100" cy="56" r="11" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" class="transition-all duration-300"/>
                                 <circle cx="96" cy="52" r="0.8" fill="#cbd5e1"/>
                                 <circle cx="104" cy="52" r="0.8" fill="#cbd5e1"/>
                                 <circle cx="100" cy="56" r="0.8" fill="#cbd5e1"/>
                                 <circle cx="96" cy="60" r="0.8" fill="#cbd5e1"/>
                                 <circle cx="104" cy="60" r="0.8" fill="#cbd5e1"/>
-                                
-                                <!-- Strike entry indicator wedge pointer -->
                                 <path id="bunker-svg-strike-line" d="M 70 20 L 70 50 M 70 50 L 66 44 M 70 50 L 74 44" stroke="#ef4444" stroke-width="2" stroke-linecap="round" class="transition-all duration-300"/>
                                 <text id="bunker-svg-desc" x="100" y="16" fill="#94a3b8" font-size="8" font-weight="extrabold" text-anchor="middle">SPLASH ZONE</text>
                             </svg>
                         </div>
                     </div>
 
-                    <!-- Dynamic Bunker Outputs -->
                     <div class="bg-gradient-to-br from-slate-950 to-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4 shadow-xl">
                         <div class="flex justify-between items-start border-b border-slate-800 pb-3">
                             <div>
@@ -804,7 +742,6 @@
                             </div>
                         </div>
 
-                        <!-- Carry vs Roll Interactive Progress Bar -->
                         <div class="space-y-1.5 font-medium">
                             <div class="flex justify-between text-xs font-semibold">
                                 <span class="text-emerald-400 flex items-center gap-1">
@@ -826,7 +763,6 @@
                             </div>
                         </div>
 
-                        <!-- Interactive Instructions Box -->
                         <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800/80">
                             <span class="text-[9px] font-bold text-emerald-400 uppercase tracking-widest block mb-1">Escaping Mechanics Protocol</span>
                             <p id="bunker-out-setup" class="text-xs text-slate-300 leading-relaxed font-medium">
@@ -837,9 +773,7 @@
                 </div>
             </section>
 
-            <!-- ==================== TAB 3: PRINT CARD ==================== -->
             <section id="tab-print" class="hidden space-y-6">
-                <!-- Instructions and Print Trigger -->
                 <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col lg:flex-row items-center justify-between gap-4 max-w-4xl mx-auto no-print">
                     <div class="space-y-1 text-center lg:text-left">
                         <h3 class="heading-font text-lg font-bold text-slate-100">Pruned One-Page Scorecard Blueprint</h3>
@@ -857,10 +791,8 @@
                     </div>
                 </div>
 
-                <!-- Double Card Container for Preview (Sized perfectly to be 1 page) -->
                 <div id="print-card-container" class="max-w-4xl mx-auto bg-white text-slate-950 p-4 rounded-3xl shadow-2xl border border-slate-200 font-medium">
                     <div id="print-area-content">
-                        <!-- Scorecard Inner Container -->
                         <div class="text-center border-b pb-2 border-slate-200">
                             <span class="text-[10px] font-extrabold text-slate-500 uppercase tracking-widest leading-none">Universal Tactical Yardage Engine</span>
                             <h2 class="font-serif text-xl font-bold text-slate-900 leading-tight">PING ISI & TAYLORMADE R580 SETUP</h2>
@@ -868,19 +800,16 @@
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative mt-3">
-                            <!-- Fold Guide Line -->
                             <div class="hidden md:block absolute inset-y-0 left-1/2 w-0.5 border-l border-dashed border-slate-300 pointer-events-none flex flex-col justify-center items-center">
                                 <span class="bg-white text-[7px] font-bold text-slate-400 px-1 py-0.5 border rounded-md rotate-90 transform origin-center">FOLD HERE</span>
                             </div>
 
-                            <!-- LEFT CARD: SIDE A (The Engine) -->
                             <div class="space-y-2">
                                 <div class="flex justify-between items-center border-b pb-1 border-slate-900">
                                     <span class="text-[11px] font-black tracking-wider uppercase text-slate-900">SIDE A: THE ENGINE</span>
                                     <span class="text-[8px] font-mono border border-slate-900 px-1 py-0.2 font-bold uppercase rounded text-slate-900">R580 XD • ISI</span>
                                 </div>
 
-                                <!-- Data Table -->
                                 <table class="w-full text-[9px] border-collapse">
                                     <thead>
                                         <tr class="bg-slate-100 border-b border-slate-900 font-bold text-slate-700">
@@ -984,19 +913,16 @@
                                             <td class="py-0.5 px-1 text-slate-600">The Lob Wedge. High flop flights with zero roll.</td>
                                         </tr>
                                     </tbody>
-                                </table>
+                                table>
                             </div>
 
-                            <!-- RIGHT CARD: SIDE B (The Manual) -->
                             <div class="space-y-2 text-slate-900">
                                 <div class="flex justify-between items-center border-b pb-1 border-slate-900">
                                     <span class="text-[11px] font-black tracking-wider uppercase text-slate-900">SIDE B: THE MANUAL</span>
                                     <span class="text-[8px] font-mono border border-slate-900 px-1 py-0.2 font-bold uppercase rounded text-slate-900">TACTICAL ADJUSTMENTS</span>
                                 </div>
 
-                                <!-- Manual Content Blocks -->
                                 <div class="space-y-1.5 text-[9px]">
-                                    <!-- Section 1 -->
                                     <div class="border border-slate-200 p-1.5 rounded bg-slate-50">
                                         <h4 class="font-bold text-slate-900 uppercase tracking-wide border-b pb-0.5 mb-0.5 flex items-center gap-1 leading-none text-[9px]">💨 1. WIND & ELEMENTS</h4>
                                         <ul class="space-y-0.5 text-slate-700 font-semibold leading-normal text-[8.5px]">
@@ -1006,7 +932,6 @@
                                         </ul>
                                     </div>
 
-                                    <!-- Section 2 -->
                                     <div class="border border-slate-200 p-1.5 rounded bg-slate-50">
                                         <h4 class="font-bold text-slate-900 uppercase tracking-wide border-b pb-0.5 mb-0.5 flex items-center gap-1 leading-none text-[9px]">⛰️ 2. HILL & LIE PHYSICS</h4>
                                         <ul class="space-y-0.5 text-slate-700 font-semibold leading-normal text-[8.5px]">
@@ -1016,7 +941,6 @@
                                         </ul>
                                     </div>
 
-                                    <!-- Section 3 -->
                                     <div class="border border-slate-200 p-1.5 rounded bg-slate-50 space-y-1">
                                         <h4 class="font-bold text-slate-900 uppercase tracking-wide border-b pb-0.5 mb-0.5 flex items-center gap-1 leading-none text-[9px]">⛳ 3. WEDGE MATRIX (CLOCK SYSTEM)</h4>
                                         <table class="w-full text-center border mt-1 text-[8.5px]">
@@ -1044,14 +968,12 @@
                                             </tbody>
                                         </table>
                                         
-                                        <!-- Expanded Short Game Strategy Block for Print Card -->
                                         <div class="border-t border-slate-200 pt-1 mt-1 space-y-0.5 text-[8px] text-slate-800 leading-tight font-semibold">
                                             <p>🎯 <strong>10-Yard Finesse:</strong> 60° RAM. Swing 4:30 to 7:30. Safe soft carry, stops dead in 3 yards.</p>
                                             <p>🟢 <strong>9i Pitch & Roll:</strong> Ball back, hands pressed fwd. Stroke ankle-to-ankle. Ratio is 1:3.</p>
                                         </div>
                                     </div>
 
-                                    <!-- Section 4 -->
                                     <div class="border border-slate-200 p-1.5 rounded bg-slate-50">
                                         <h4 class="font-bold text-slate-900 uppercase tracking-wide border-b pb-0.5 mb-0.5 flex items-center gap-1 leading-none text-[9px]">⏳ 4. BUNKER ESCAPE ACTIONS</h4>
                                         <ul class="space-y-0.5 text-slate-700 font-semibold leading-tight text-[8.5px]">
@@ -1069,15 +991,12 @@
 
         </main>
 
-        <!-- FOOTER STATUS -->
         <footer class="bg-slate-900/40 border-t border-slate-800 py-4 text-center text-xs text-slate-500 mt-auto">
             <p>© 2026 Smart Caddie Companion • Optimized for Custom Stiff Flex Setup</p>
         </footer>
     </div>
 
-    <!-- INTERACTIVE SCRIPTS -->
     <script>
-        // Database of user's clubs with numerical roll variables for live calculating
         const clubs = [
             { id: 'driver', name: 'TM R580 XD', carry: 245, loft: '9.5°', rollVal: 18, roll: '15-20y', shaft: 'Tour Stiff Mitsubishi', desc: 'Flat, piercing launch trajectory. Tour-stiff profile maintains square angle at impact.' },
             { id: 'hybrid', name: 'Adams Super S', carry: 195, loft: '19°', rollVal: 10, roll: '8-12y', shaft: 'Stiff Matrix', desc: 'High-launch rescue/fairway wood replacement. Excellent sole sweep cuts through tough lies.' },
@@ -1086,20 +1005,18 @@
             { id: '5i', name: 'Ping ISI 5-Iron', carry: 155, loft: '27°', rollVal: 7, roll: '6-8y', shaft: 'Stiff Cushin JZ Steel', desc: 'Mid-iron target locator. Strong, launching trajectory built for holding wider green configurations.' },
             { id: '6i', name: 'Ping ISI 6-Iron', carry: 145, loft: '30.5°', rollVal: 6, roll: '5-7y', shaft: 'Stiff Cushin JZ Steel', desc: 'Predictable target driver. Heavy head perimeter stabilization blocks standard toe twist.' },
             { id: '7i', name: 'Ping ISI 7-Iron', carry: 135, loft: '34.5°', rollVal: 5, roll: '4-6y', shaft: 'Stiff Cushin JZ Steel', desc: 'Bread-and-butter iron. Launches high with soft descent. Classic go-to scoring target finder.' },
-            { id: '8i', name: 'Ping ISI 8-Iron', carry: 125, loft: '38.5°', rollVal: 3.5, roll: '3-4y', shaft: 'Stiff Cushin JZ Steel', desc: 'High spin index. Great for aggressive direct targeting into fast, firm greens.' },
-            { id: '9i', name: 'Ping ISI 9-Iron', carry: 115, loft: '42.5°', rollVal: 2.5, roll: '2-3y', shaft: 'Stiff Cushin JZ Steel', desc: 'Direct pin-seeker. Generates high apex heights with very fast deceleration upon turf impact.' },
-            { id: 'pw', name: 'Ping ISI PW', carry: 105, loft: '47°', rollVal: 1.5, roll: '1-2y', shaft: 'Stiff Cushin JZ Steel', desc: 'Full approach scoring wedge. Traditional 90s design delivers dense backspin parameters.' },
-            { id: 'sw', name: 'Ping ISI SW', carry: 90, loft: '52°', rollVal: 1, roll: '1y', shaft: 'Stiff Cushin JZ Steel', desc: 'Perfect gap coverage wedge. Crucial utility piece for long pitch runs or wider bunker entries.' },
-            { id: 'lynx', name: 'Lynx CoNi', carry: 75, loft: '56°', rollVal: 0.5, roll: '0-1y', shaft: 'Wedge Flex Steel', desc: 'Dedicated sand recovery and soft bunker floating lob. Heavy head delivers smooth sweep.' },
-            { id: 'ram', name: 'RAM Tour Grind', carry: 60, loft: '60°', rollVal: 0, roll: '0y', shaft: 'Wedge Flex Steel', desc: 'Maximum elevation precision wedge. Crucial for high flop rescues over tight sands.' }
+            { id: '8i', name: 'Ping ISI 8-Iron', carry: 125, loft: '38.5°', rollVal: 3.5, roll: '3-4y', shaft: 'Stiff Cushin JZ Steel', type: 'Short Iron', desc: 'High spin index. Great for aggressive direct targeting into fast, firm greens.' },
+            { id: '9i', name: 'Ping ISI 9-Iron', carry: 115, loft: '42.5°', rollVal: 2.5, roll: '2-3y', shaft: 'Stiff Cushin JZ Steel', type: 'Short Iron', desc: 'Direct pin-seeker. Generates high apex heights with very fast deceleration upon turf impact.' },
+            { id: 'pw', name: 'Ping ISI PW', carry: 105, loft: '47°', rollVal: 1.5, roll: '1-2y', shaft: 'Stiff Cushin JZ Steel', type: 'Wedge', desc: 'Full approach scoring wedge. Traditional 90s design delivers dense backspin parameters.' },
+            { id: 'sw', name: 'Ping ISI SW', carry: 90, loft: '52°', rollVal: 1, roll: '1y', shaft: 'Stiff Cushin JZ Steel', type: 'Wedge', desc: 'Perfect gap coverage wedge. Crucial utility piece for long pitch runs or wider bunker entries.' },
+            { id: 'lynx', name: 'Lynx CoNi', carry: 75, loft: '56°', rollVal: 0.5, roll: '0-1y', shaft: 'Wedge Flex Steel', type: 'Wedge', desc: 'Dedicated sand recovery and soft bunker floating lob. Heavy head delivers smooth sweep.' },
+            { id: 'ram', name: 'RAM Tour Grind', carry: 60, loft: '60°', rollVal: 0, roll: '0y', shaft: 'Wedge Flex Steel', type: 'Wedge', desc: 'Maximum elevation precision wedge. Crucial for high flop rescues over tight sands.' }
         ];
 
-        // Active State variables
         let currentChippingScenario = 'clear';
         let currentBunkerSand = 'soft';
         let currentBunkerLip = 'low';
 
-        // Tab switcher
         function switchTab(tabId) {
             document.getElementById('tab-dashboard').classList.add('hidden');
             document.getElementById('tab-calculator').classList.add('hidden');
@@ -1110,11 +1027,8 @@
             document.getElementById('btn-print').className = "flex-1 sm:flex-initial px-4 py-1.5 text-xs font-semibold rounded-lg transition-all duration-300 text-slate-400 hover:text-slate-200";
 
             document.getElementById('tab-' + tabId).classList.remove('hidden');
-            
-            const activeBtn = document.getElementById('btn-' + tabId);
-            activeBtn.className = "flex-1 sm:flex-initial px-4 py-1.5 text-xs font-semibold rounded-lg transition-all duration-300 bg-emerald-500 text-slate-950 shadow-md";
+            document.getElementById('btn-' + tabId).className = "flex-1 sm:flex-initial px-4 py-1.5 text-xs font-semibold rounded-lg transition-all duration-300 bg-emerald-500 text-slate-950 shadow-md";
 
-            // If switching to calculator, run caddie algorithms
             if (tabId === 'calculator') {
                 runCalculator();
                 runChippingCaddie();
@@ -1122,7 +1036,6 @@
             }
         }
 
-        // Sub-Tab Switcher inside Smart Calculators Tab
         function setCalcSubTab(subTabId) {
             document.getElementById('calc-sub-approach').classList.add('hidden');
             document.getElementById('calc-sub-chipping').classList.add('hidden');
@@ -1140,7 +1053,6 @@
             if (subTabId === 'bunker') runBunkerCaddie();
         }
 
-        // Dashboard Club Inspector
         function inspectClub(id, carry, roll, loft, name, shaft, desc) {
             document.getElementById('inspect-name').innerText = name;
             document.getElementById('inspect-shaft').innerText = shaft + " • " + loft + " Loft";
@@ -1149,11 +1061,9 @@
 
             const numericLoft = parseFloat(loft);
             const heightFactor = Math.min(Math.max(100 - (numericLoft * 1.5), 15), 85);
-            const pathElement = document.getElementById('trajectory-path');
-            pathElement.setAttribute('d', `M 10 90 Q 150 ${heightFactor} 290 90`);
+            document.getElementById('trajectory-path').setAttribute('d', `M 10 90 Q 150 ${heightFactor} 290 90`);
         }
 
-        // Wedge Matrix Clock Adjuster
         const clockData = {
             '9:00': { '52': '45y', '56': '35y', '60': '25y' },
             '10:30': { '52': '70y', '56': '55y', '60': '40y' }
@@ -1163,146 +1073,75 @@
             document.getElementById('clk-9').className = "px-3 py-2 rounded-lg text-xs font-bold transition text-slate-400 hover:text-slate-200";
             document.getElementById('clk-10').className = "px-3 py-2 rounded-lg text-xs font-bold transition text-slate-400 hover:text-slate-200";
 
-            if (hour === '9:00') {
-                document.getElementById('clk-9').className = "px-3 py-2 rounded-lg text-xs font-bold transition bg-emerald-500 text-slate-950";
-                document.getElementById('wdg-52').innerText = clockData['9:00']['52'];
-                document.getElementById('wdg-56').innerText = clockData['9:00']['56'];
-                document.getElementById('wdg-60').innerText = clockData['9:00']['60'];
-            } else {
-                document.getElementById('clk-10').className = "px-3 py-2 rounded-lg text-xs font-bold transition bg-emerald-500 text-slate-950";
-                document.getElementById('wdg-52').innerText = clockData['10:30']['52'];
-                document.getElementById('wdg-56').innerText = clockData['10:30']['56'];
-                document.getElementById('wdg-60').innerText = clockData['10:30']['60'];
-            }
+            const selectedHour = hour === '9:00' ? '9' : '10';
+            document.getElementById('clk-' + selectedHour).className = "px-3 py-2 rounded-lg text-xs font-bold transition bg-emerald-500 text-slate-950";
+            document.getElementById('wdg-52').innerText = clockData[hour]['52'];
+            document.getElementById('wdg-56').innerText = clockData[hour]['56'];
+            document.getElementById('wdg-60').innerText = clockData[hour]['60'];
         }
 
-        // Chipping Caddie Scenario Toggle
         function setChippingScenario(scenario) {
             currentChippingScenario = scenario;
-            
-            const btnClear = document.getElementById('chip-scen-clear');
-            const btnObstacle = document.getElementById('chip-scen-obstacle');
-
-            if (scenario === 'clear') {
-                btnClear.className = "px-4 py-3 bg-emerald-500 text-slate-950 font-bold text-xs rounded-xl transition border border-emerald-500/10 flex flex-col items-center gap-1";
-                btnObstacle.className = "px-4 py-3 bg-slate-950 hover:bg-slate-900 text-slate-300 font-bold text-xs rounded-xl transition border border-slate-800 flex flex-col items-center gap-1";
-            } else {
-                btnClear.className = "px-4 py-3 bg-slate-950 hover:bg-slate-900 text-slate-300 font-bold text-xs rounded-xl transition border border-slate-800 flex flex-col items-center gap-1";
-                btnObstacle.className = "px-4 py-3 bg-amber-500 text-slate-950 font-bold text-xs rounded-xl transition border border-amber-500/10 flex flex-col items-center gap-1";
-            }
-
+            document.getElementById('chip-scen-clear').className = scenario === 'clear' ? "px-4 py-3 bg-emerald-500 text-slate-950 font-bold text-xs rounded-xl transition border border-emerald-500/10 flex flex-col items-center gap-1" : "px-4 py-3 bg-slate-950 hover:bg-slate-900 text-slate-300 font-bold text-xs rounded-xl transition border border-slate-800 flex flex-col items-center gap-1";
+            document.getElementById('chip-scen-obstacle').className = scenario === 'obstacle' ? "px-4 py-3 bg-amber-500 text-slate-950 font-bold text-xs rounded-xl transition border border-amber-500/10 flex flex-col items-center gap-1" : "px-4 py-3 bg-slate-950 hover:bg-slate-900 text-slate-300 font-bold text-xs rounded-xl transition border border-slate-800 flex flex-col items-center gap-1";
             runChippingCaddie();
         }
 
-        // Green Chipping Calculator Engine
         function runChippingCaddie() {
             const distance = parseInt(document.getElementById('chip-distance').value) || 10;
             document.getElementById('chip-dist-val').innerText = distance + " Yards";
             document.getElementById('chip-dist-footer').innerText = distance + "y";
 
-            let club = "";
-            let clock = "";
-            let carryPct = 50; 
-            let ratioText = "";
-            let setupText = "";
+            let club = "Ping ISI 9-Iron", clock = "Ankle-to-Ankle (5:00 - 7:00 stroke)", carryPct = 25, ratioText = "Ratio: 1:3 Bump & Run", setupText = "<strong>9-Iron Bump & Run Setup:</strong> Ball back in your stance (inside right heel). Press hands forward toward target (firm 'Y' layout). Absolute lock on wrists; stroke with pure putting shoulders. Runs like a perfect putt.";
 
             if (currentChippingScenario === 'clear') {
-                // RUN IT Scenario (Bump & Run Playbook)
-                if (distance <= 12) {
-                    club = "Ping ISI 9-Iron";
-                    clock = "Ankle-to-Ankle (5:00 - 7:00 stroke)";
-                    carryPct = 25; // 1:3 ratio (25% carry, 75% roll)
-                    ratioText = "Ratio: 1:3 Bump & Run";
-                    setupText = "<strong>9-Iron Bump & Run Setup:</strong> Ball back in your stance (inside right heel). Press hands forward toward target (firm 'Y' layout). Absolute lock on wrists; stroke with pure putting shoulders. Runs like a perfect putt.";
-                } else if (distance > 12 && distance <= 24) {
-                    club = "Ping ISI Pitching Wedge (PW)";
-                    clock = "Ankle-to-Hip (4:30 - 7:30 stroke)";
-                    carryPct = 33; // 1:2 ratio (33% carry, 67% roll)
-                    ratioText = "Ratio: 1:2 Chip & Run";
-                    setupText = "<strong>PW Running Pitch Setup:</strong> Play ball middle-back. Light forward press. Brush the grass smoothly through impact. Minimal wrist load, letting the loft of the club pop and then feed down the slope.";
-                } else {
-                    club = "Ping ISI Sand Wedge (52°)";
-                    clock = "9:00 Waist-to-Waist Swing (3:00 View)";
-                    carryPct = 50; // 1:1 ratio (50% carry, 50% roll)
-                    ratioText = "Ratio: 1:1 Pitch & Feed";
-                    setupText = "<strong>52° SW Pitch Setup:</strong> Ball centered. Body weight shifted 60% onto your lead leg. Smooth, controlled acceleration. Focus on a solid chest turn to keep the face stabilized on release.";
+                if (distance > 12 && distance <= 24) {
+                    club = "Ping ISI Pitching Wedge (PW)"; clock = "Ankle-to-Hip (4:30 - 7:30 stroke)"; carryPct = 33; ratioText = "Ratio: 1:2 Chip & Run"; setupText = "<strong>PW Running Pitch Setup:</strong> Play ball middle-back. Light forward press. Brush the grass smoothly through impact. Minimal wrist load, letting the loft of the club pop and then feed down the slope.";
+                } else if (distance > 24) {
+                    club = "Ping ISI Sand Wedge (52°)"; clock = "9:00 Waist-to-Waist Swing (3:00 View)"; carryPct = 50; ratioText = "Ratio: 1:1 Pitch & Feed"; setupText = "<strong>52° SW Pitch Setup:</strong> Ball centered. Body weight shifted 60% onto your lead leg. Smooth, controlled acceleration. Focus on a solid chest turn to keep the face stabilized on release.";
                 }
             } else {
-                // FLY IT Scenario (Over Bunker / Tight Pin)
-                if (distance <= 12) {
-                    club = "RAM Tour Grind (60° Lob Wedge)";
-                    clock = "Pocket-to-Pocket (4:30 - 7:30 swing)";
-                    carryPct = 70; // 70% carry, 30% roll
-                    ratioText = "Ratio: 7:3 Soft Finesse Floater";
-                    setupText = "<strong>10-Yard Finesse Wedge Setup:</strong> Front-middle ball placement. Slightly open your clubface. Trust the wedge's sole bounce. Keep acceleration steady—do not decelerate, let the face slide cleanly under.";
-                } else if (distance > 12 && distance <= 22) {
-                    club = "RAM Tour Grind (60° Lob Wedge)";
-                    clock = "Waist-to-Waist / 9:00 to 3:00 Swing";
-                    carryPct = 80; // 80% carry, 20% roll
-                    ratioText = "Ratio: 8:2 High Drop & Stop";
-                    setupText = "<strong>High Lob Approach Setup:</strong> Ball centered. Fast, clean wrist hinge on backswing. Release fully through the ball with a high finish to engage maximum clubface friction, stopping the ball instantly.";
+                carryPct = 70; ratioText = "Ratio: 7:3 Soft Finesse Floater"; club = "RAM Tour Grind (60° Lob Wedge)"; clock = "Pocket-to-Pocket (4:30 - 7:30 swing)"; setupText = "<strong>10-Yard Finesse Wedge Setup:</strong> Front-middle ball placement. Slightly open your clubface. Trust the wedge's sole bounce. Keep acceleration steady—do not decelerate, let the face slide cleanly under.";
+                if (distance > 12 && distance <= 22) {
+                    carryPct = 80; ratioText = "Ratio: 8:2 High Drop & Stop"; clock = "Waist-to-Waist / 9:00 to 3:00 Swing"; setupText = "<strong>High Lob Approach Setup:</strong> Ball centered. Fast, clean wrist hinge on backswing. Release fully through the ball with a high finish to engage maximum clubface friction, stopping the ball instantly.";
                 } else if (distance > 22 && distance <= 35) {
-                    club = "Lynx CoNi Wedge (56° SW)";
-                    clock = "Waist-to-Waist / 9:00 to 3:00 Swing";
-                    carryPct = 75; // 75% carry, 25% roll
-                    ratioText = "Ratio: 3:1 Soft Sand Wedge Pitch";
-                    setupText = "<strong>56° Lynx Medium Pitch Setup:</strong> Shift weight slightly forward. Smooth shoulder turn. Focus on sweeping the turf directly under the ball, floating the ball high to land softly with minor trickling.";
-                } else {
-                    club = "Ping ISI Sand Wedge (52°)";
-                    clock = "Chest-to-Chest / 10:30 to 1:30 Swing";
-                    carryPct = 70; // 70% carry, 30% roll
-                    ratioText = "Ratio: 7:3 Lofted approach Pitch";
-                    setupText = "<strong>SW Long Pitch Setup:</strong> Centered ball, normal address posture. Rely on premium steel shafts to sustain dynamic tempo. Accelerate through the ball with complete weight transfer to the target leg.";
+                    carryPct = 75; ratioText = "Ratio: 3:1 Soft Sand Wedge Pitch"; club = "Lynx CoNi Wedge (56° SW)"; clock = "Waist-to-Waist / 9:00 to 3:00 Swing"; setupText = "<strong>56° Lynx Medium Pitch Setup:</strong> Shift weight slightly forward. Smooth shoulder turn. Focus on sweeping the turf directly under the ball, floating the ball high to land softly with minor trickling.";
+                } else if (distance > 35) {
+                    club = "Ping ISI Sand Wedge (52°)"; clock = "Chest-to-Chest / 10:30 to 1:30 Swing"; setupText = "<strong>SW Long Pitch Setup:</strong> Centered ball, normal address posture. Rely on premium steel shafts to sustain dynamic tempo. Accelerate through the ball with complete weight transfer to the target leg.";
                 }
             }
 
-            // Calculate exact carry and roll yards
             const carryYards = Math.round(distance * (carryPct / 100) * 10) / 10;
-            const rollYards = Math.round((distance - carryYards) * 10) / 10;
-
             document.getElementById('chip-out-club').innerText = club;
             document.getElementById('chip-out-clock').innerText = clock;
             document.getElementById('chip-val-carry').innerText = carryYards + "y";
-            document.getElementById('chip-val-roll').innerText = rollYards + "y";
+            document.getElementById('chip-val-roll').innerText = Math.round((distance - carryYards) * 10) / 10 + "y";
             document.getElementById('chip-ratio-text').innerText = ratioText;
             document.getElementById('chip-out-setup').innerHTML = setupText;
-
-            // Adjust carry vs roll progress bar
             document.getElementById('chip-bar-carry').style.width = carryPct + "%";
             document.getElementById('chip-bar-roll').style.width = (100 - carryPct) + "%";
         }
 
-        // Bunker Escape Toggles
         function setBunkerSand(sandType) {
             currentBunkerSand = sandType;
-            const btnSoft = document.getElementById('sand-btn-soft');
-            const btnFirm = document.getElementById('sand-btn-firm');
-            const btnPlugged = document.getElementById('sand-btn-plugged');
-
-            btnSoft.className = btnFirm.className = btnPlugged.className = "px-2 py-3 bg-slate-950 hover:bg-slate-900 text-slate-300 font-bold text-xs rounded-xl transition border border-slate-800 flex flex-col items-center gap-1";
-
-            if (sandType === 'soft') {
-                btnSoft.className = "px-2 py-3 bg-amber-500 text-slate-950 font-bold text-xs rounded-xl transition border border-amber-500/10 flex flex-col items-center gap-1";
-            } else if (sandType === 'firm') {
-                btnFirm.className = "px-2 py-3 bg-amber-500 text-slate-950 font-bold text-xs rounded-xl transition border border-amber-500/10 flex flex-col items-center gap-1";
-            } else {
-                btnPlugged.className = "px-2 py-3 bg-amber-500 text-slate-950 font-bold text-xs rounded-xl transition border border-amber-500/10 flex flex-col items-center gap-1";
-            }
-
+            ['soft', 'firm', 'plugged'].forEach(s => document.getElementById('sand-btn-' + s).className = "px-2 py-3 bg-slate-950 hover:bg-slate-900 text-slate-300 font-bold text-xs rounded-xl transition border border-slate-800 flex flex-col items-center gap-1");
+            document.getElementById('sand-btn-' + sandType).className = "px-2 py-3 bg-amber-500 text-slate-950 font-bold text-xs rounded-xl transition border border-amber-500/10 flex flex-col items-center gap-1";
             runBunkerCaddie();
         }
 
-        // Sand Bunker escape logic algorithm
+        function setBunkerLip(lipType) {
+            currentBunkerLip = lipType;
+            document.getElementById('lip-btn-low').className = lipType === 'low' ? "px-4 py-2.5 bg-emerald-500 text-slate-950 font-bold text-xs rounded-xl transition border border-emerald-500/10" : "px-4 py-2.5 bg-slate-950 hover:bg-slate-900 text-slate-300 font-bold text-xs rounded-xl transition border border-slate-800";
+            document.getElementById('lip-btn-high').className = lipType === 'high' ? "px-4 py-2.5 bg-emerald-500 text-slate-950 font-bold text-xs rounded-xl transition border border-emerald-500/10" : "px-4 py-2.5 bg-slate-950 hover:bg-slate-900 text-slate-300 font-bold text-xs rounded-xl transition border border-slate-800";
+            runBunkerCaddie();
+        }
+
         function runBunkerCaddie() {
             const distance = parseInt(document.getElementById('bunker-distance').value) || 12;
             document.getElementById('bunker-dist-val').innerText = distance + " Yards";
             document.getElementById('bunker-dist-footer').innerText = distance + "y";
 
-            let club = "";
-            let clock = "";
-            let carryPct = 65; 
-            let ratioText = "";
-            let setupText = "";
+            let club = "Lynx CoNi Wedge (56° SW)", clock = "9:00 Waist-to-Waist Swing", carryPct = 65, ratioText = "Ratio: 2:1 Sand Glide", setupText = "<strong>Standard Fluffy Splash Play:</strong> Open your Lynx 56° face slightly to activate sole bounce. Stance open, weight 60% lead side. Entry splash 2 inches behind the ball. Maintain speed through release.";
             
             const svgBall = document.getElementById('bunker-svg-ball');
             const svgStrike = document.getElementById('bunker-svg-strike-line');
@@ -1310,95 +1149,40 @@
             const textDesc = document.getElementById('bunker-svg-desc');
 
             if (currentBunkerSand === 'soft') {
-                svgBall.setAttribute('cy', '54'); 
-                svgStrike.setAttribute('d', 'M 76 20 L 76 56 M 76 56 L 71 50 M 76 56 L 81 50'); 
-                textOffset.innerText = "Strike Entry Point: 2\" Behind Ball";
-                textOffset.className = "font-mono font-bold text-amber-500 text-xs";
-                textDesc.innerText = "SOFT SPLASH ZONE";
+                svgBall.setAttribute('cy', '54'); svgStrike.setAttribute('d', 'M 76 20 L 76 56 M 76 56 L 71 50 M 76 56 L 81 50'); textOffset.innerText = "Strike Entry Point: 2\" Behind Ball"; textOffset.className = "font-mono font-bold text-amber-500 text-xs"; textDesc.innerText = "SOFT SPLASH ZONE";
             } else if (currentBunkerSand === 'firm') {
-                svgBall.setAttribute('cy', '48'); 
-                svgStrike.setAttribute('d', 'M 88 15 L 88 50 M 88 50 L 84 44 M 88 50 L 92 44'); 
-                textOffset.innerText = "Strike Entry Point: 1\" Crisp Clip";
-                textOffset.className = "font-mono font-bold text-emerald-400 text-xs";
-                textDesc.innerText = "FIRM SHALLOW SWEEP";
+                svgBall.setAttribute('cy', '48'); svgStrike.setAttribute('d', 'M 88 15 L 88 50 M 88 50 L 84 44 M 88 50 L 92 44'); textOffset.innerText = "Strike Entry Point: 1\" Crisp Clip"; textOffset.className = "font-mono font-bold text-emerald-400 text-xs"; textDesc.innerText = "FIRM SHALLOW SWEEP";
             } else {
-                svgBall.setAttribute('cy', '64'); 
-                svgStrike.setAttribute('d', 'M 80 15 L 85 58 M 85 58 L 78 54 M 85 58 L 84 50'); 
-                textOffset.innerText = "Strike Entry Point: Steep Dig Behind";
-                textOffset.className = "font-mono font-bold text-rose-500 text-xs";
-                textDesc.innerText = "STEEP PLUGGED GOUGE";
+                svgBall.setAttribute('cy', '64'); svgStrike.setAttribute('d', 'M 80 15 L 85 58 M 85 58 L 78 54 M 85 58 L 84 50'); textOffset.innerText = "Strike Entry Point: Steep Dig Behind"; textOffset.className = "font-mono font-bold text-rose-500 text-xs"; textDesc.innerText = "STEEP PLUGGED GOUGE";
             }
 
             if (currentBunkerSand === 'plugged') {
-                club = "Lynx CoNi Wedge (56° SW)";
-                carryPct = 40; 
-                ratioText = "Ratio: 2:3 Deep Sand Dugout";
-                
-                if (distance <= 10) {
-                    clock = "Hip-to-Hip (4:30 - 7:30 swing)";
-                } else if (distance > 10 && distance <= 20) {
-                    clock = "9:00 to 3:00 View Swing";
-                } else {
-                    clock = "10:30 to 1:30 View Swing";
-                }
-                setupText = "<strong>Plugged Fried-Egg Escape:</strong> Close the clubface slightly (turning toe inward) to prevent bounce. Steep downward descent directly 1 inch behind ball. Grip firmly. The ball will pop out low with high roll-out.";
+                club = "Lynx CoNi Wedge (56° SW)"; carryPct = 40; ratioText = "Ratio: 2:3 Deep Sand Dugout"; clock = distance <= 10 ? "Hip-to-Hip (4:30 - 7:30 swing)" : (distance <= 20 ? "9:00 to 3:00 View Swing" : "10:30 to 1:30 View Swing"); setupText = "<strong>Plugged Fried-Egg Escape:</strong> Close the clubface slightly (turning toe inward) to prevent bounce. Steep downward descent directly 1 inch behind ball. Grip firmly. The ball will pop out low with high roll-out.";
             } else if (currentBunkerSand === 'firm') {
                 if (currentBunkerLip === 'high') {
-                    club = "RAM Tour Grind (60°)";
-                    carryPct = 80; 
-                    ratioText = "Ratio: 8:2 Hard Wall Escape";
-                    setupText = "<strong>Firm Packed Steep Escape:</strong> Open your 60° RAM wedge slightly. Lean weight forward. Strip sand extremely thin 1 inch behind the ball. Do not scoop; slice the sand under ball cleanly.";
+                    club = "RAM Tour Grind (60°)"; carryPct = 80; ratioText = "Ratio: 8:2 Hard Wall Escape"; setupText = "<strong>Firm Packed Steep Escape:</strong> Open your 60° RAM wedge slightly. Lean weight forward. Strip sand extremely thin 1 inch behind the ball. Do not scoop; slice the sand under ball cleanly.";
                 } else {
-                    club = "Ping ISI Sand Wedge (52°)";
-                    carryPct = 60;
-                    ratioText = "Ratio: 3:2 Running Blast";
-                    setupText = "<strong>Firm Flat Escape:</strong> Keep 52° Ping SW square. Position ball center-forward. Sweep sand thin 1 inch behind ball. Trust steel shaft weight to glide through firm sand. Runs cleanly on green.";
+                    club = "Ping ISI Sand Wedge (52°)"; carryPct = 60; ratioText = "Ratio: 3:2 Running Blast"; setupText = "<strong>Firm Flat Escape:</strong> Keep 52° Ping SW square. Position ball center-forward. Sweep sand thin 1 inch behind ball. Trust steel shaft weight to glide through firm sand. Runs cleanly on green.";
                 }
-
-                if (distance <= 10) {
-                    clock = "Ankle-to-Hip / Pocket-to-Pocket";
-                } else if (distance > 10 && distance <= 20) {
-                    clock = "9:00 Waist-to-Waist Swing";
-                } else {
-                    clock = "10:30 Chest-to-Chest Swing";
-                }
+                clock = distance <= 10 ? "Ankle-to-Hip / Pocket-to-Pocket" : (distance <= 20 ? "9:00 Waist-to-Waist Swing" : "10:30 Chest-to-Chest Swing");
             } else {
                 if (currentBunkerLip === 'high') {
-                    club = "RAM Tour Grind (60°)";
-                    carryPct = 75;
-                    ratioText = "Ratio: 3:1 Steep Splash";
-                    setupText = "<strong>High Lip Splash Play:</strong> Lay your 60° RAM wedge fully open like a plate before gripping. Open stance 15 degrees left. Swing aggressively 9:00 to 3:00. Splash sand 2 inches behind ball with full finish.";
-                } else {
-                    club = "Lynx CoNi Wedge (56° SW)";
-                    carryPct = 65;
-                    ratioText = "Ratio: 2:1 Sand Glide";
-                    setupText = "<strong>Standard Fluffy Splash Play:</strong> Open your Lynx 56° face slightly to activate sole bounce. Stance open, weight 60% lead side. Entry splash 2 inches behind the ball. Maintain speed through release.";
+                    club = "RAM Tour Grind (60°)"; carryPct = 75; ratioText = "Ratio: 3:1 Steep Splash"; setupText = "<strong>High Lip Splash Play:</strong> Lay your 60° RAM wedge fully open like a plate before gripping. Open stance 15 degrees left. Swing aggressively 9:00 to 3:00. Splash sand 2 inches behind ball with full finish.";
                 }
-
-                if (distance <= 8) {
-                    clock = "Hip-to-Hip (4:30 - 7:30 Swing)";
-                } else if (distance > 8 && distance <= 18) {
-                    clock = "9:00 Waist-to-Waist Swing";
-                } else {
-                    clock = "10:30 Chest-to-Chest Swing";
-                }
+                clock = distance <= 8 ? "Hip-to-Hip (4:30 - 7:30 Swing)" : (distance <= 18 ? "9:00 Waist-to-Waist Swing" : "10:30 Chest-to-Chest Swing");
             }
 
             const carryYards = Math.round(distance * (carryPct / 100) * 10) / 10;
-            const rollYards = Math.round((distance - carryYards) * 10) / 10;
-
             document.getElementById('bunker-out-club').innerText = club;
             document.getElementById('bunker-out-clock').innerText = clock;
             document.getElementById('bunker-val-carry').innerText = carryYards + "y";
-            document.getElementById('bunker-val-roll').innerText = rollYards + "y";
+            document.getElementById('bunker-val-roll').innerText = Math.round((distance - carryYards) * 10) / 10 + "y";
             document.getElementById('bunker-ratio-text').innerText = ratioText;
             document.getElementById('bunker-out-setup').innerHTML = setupText;
-
             document.getElementById('bunker-bar-carry').style.width = carryPct + "%";
             document.getElementById('bunker-bar-roll').style.width = (100 - carryPct) + "%";
         }
 
-        // Smart Calculator Logic (Approach)
         function runCalculator() {
             const rawTarget = parseInt(document.getElementById('calc-target').value) || 0;
             const elevation = parseInt(document.getElementById('calc-elev').value);
@@ -1406,71 +1190,71 @@
             const windSpeed = parseInt(document.getElementById('calc-wind-speed').value);
             const isRain = document.getElementById('calc-rain').checked;
 
-            const elevText = elevation === 0 ? "Flat (0 ft)" : (elevation > 0 ? `Uphill (+${elevation} ft)` : `Downhill (${elevation} ft)`);
-            document.getElementById('calc-elev-val').innerText = elevText;
+            document.getElementById('calc-elev-val').innerText = elevation === 0 ? "Flat (0 ft)" : (elevation > 0 ? `Uphill (+${elevation} ft)` : `Downhill (${elevation} ft)`);
 
-            let adjustedTarget = rawTarget;
-            const elevOffset = (elevation / 15) * 5;
-            adjustedTarget += elevOffset;
-
-            if (windDir === 'head') {
-                adjustedTarget += (windSpeed * 1.0);
-            } else if (windDir === 'tail') {
-                adjustedTarget -= (windSpeed * 0.5);
-            }
-
-            if (isRain) {
-                adjustedTarget += 10;
-            }
+            let adjustedTarget = rawTarget + ((elevation / 15) * 5);
+            if (windDir === 'head') adjustedTarget += windSpeed;
+            if (windDir === 'tail') adjustedTarget -= (windSpeed * 0.5);
+            if (isRain) adjustedTarget += 10;
 
             adjustedTarget = Math.max(Math.round(adjustedTarget), 0);
-
             document.getElementById('out-raw').innerText = rawTarget + "y";
             document.getElementById('out-plays').innerText = adjustedTarget + "y";
 
-            // Find optimal club (closest matching carry distance)
-            let recommendedClub = clubs[clubs.length - 1]; 
-            let smallestDifference = Infinity;
-
+            let recommendedClub = clubs[clubs.length - 1], smallestDifference = Infinity;
             for (let i = 0; i < clubs.length; i++) {
                 const diff = Math.abs(clubs[i].carry - adjustedTarget);
-                if (diff < smallestDifference) {
-                    smallestDifference = diff;
-                    recommendedClub = clubs[i];
-                }
+                if (diff < smallestDifference) { smallestDifference = diff; recommendedClub = clubs[i]; }
             }
 
-            // Calculate club roll range average for output arithmetic
-            const carryOutput = recommendedClub.carry;
-            const rollText = recommendedClub.roll;
-            const rollAverageVal = recommendedClub.rollVal;
-            const totalOutput = carryOutput + rollAverageVal;
-
-            // Render outputs dynamically
             document.getElementById('out-club').innerText = recommendedClub.name;
-            document.getElementById('out-club-carry').innerText = carryOutput + "y";
-            document.getElementById('out-club-roll').innerText = rollText;
-            document.getElementById('out-club-total').innerText = totalOutput + "y";
+            document.getElementById('out-club-carry').innerText = recommendedClub.carry + "y";
+            document.getElementById('out-club-roll').innerText = recommendedClub.roll;
+            document.getElementById('out-club-total').innerText = (recommendedClub.carry + recommendedClub.rollVal) + "y";
             document.getElementById('out-tip').innerText = recommendedClub.desc;
         }
 
-        // Clean direct window.print execution
-        function printCard() {
-            window.print();
-        }
+        function printCard() { window.print(); }
 
-        // Toggle print-friendly screen-active layout class directly on body
         function togglePrintFriendlyMode(enable) {
             if (enable) {
                 document.body.classList.add('print-view-active');
-                document.getElementById('floating-print-controls').classList.remove('hidden');
-                document.getElementById('floating-print-controls').classList.add('flex');
+                document.getElementById('floating-print-controls').className = "fixed top-4 left-1/2 transform -translate-x-1/2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-full shadow-2xl flex items-center gap-3 z-50 no-print";
                 window.scrollTo(0, 0);
             } else {
                 document.body.classList.remove('print-view-active');
-                document.getElementById('floating-print-controls').classList.add('hidden');
-                document.getElementById('floating-print-controls').classList.remove('flex');
+                document.getElementById('floating-print-controls').className = "hidden fixed top-4 left-1/2 transform -translate-x-1/2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-full shadow-2xl items-center gap-3 z-50 no-print";
             }
+        }
+
+        // Native System Service Worker Engine for Local Network Offline Persistence
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                const scriptBlobContent = `
+                    const CACHE_NAME = 'smart-caddie-v1';
+                    const ASSETS = [
+                        location.href,
+                        'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap'
+                    ];
+                    self.addEventListener('install', event => {
+                        event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
+                    });
+                    self.addEventListener('activate', event => {
+                        event.waitUntil(self.clients.claim());
+                    });
+                    self.addEventListener('fetch', event => {
+                        event.respondWith(caches.match(event.request).then(cachedResponse => {
+                            return cachedResponse || fetch(event.request).catch(() => {
+                                if (event.request.mode === 'navigate') {
+                                    return caches.match(location.href);
+                                }
+                            });
+                        }));
+                    });
+                `;
+                const workerBlob = new Blob([scriptBlobContent], { type: 'application/javascript' });
+                navigator.serviceWorker.register(URL.createObjectURL(workerBlob)).catch(err => console.log('SW Setup hold: ', err));
+            });
         }
 
         window.onload = function() {
